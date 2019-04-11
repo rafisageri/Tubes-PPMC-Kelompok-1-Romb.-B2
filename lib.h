@@ -145,17 +145,17 @@ int isSizeValid(int m, int n)
 }
 
 void printLayout (char arr[40][40][10], int n, int m){
-    /*int i,j;
-    for (j=0; j<m; ++j){
+    int i,j;
+    /*for (j=0; j<m; ++j){
         for (i=0; i<n; ++i){
             if(!(arr[i][j][0] == '0')){
                 printf("%s", arr[i][j]);
             }
         }
     }*/
-     for (int i = 0; i<=m;i++){
+     for (i = 0; i<=m;i++){
 
-    for (int j = 0; j <=n;j++){
+    for (j = 0; j <=n;j++){
 
         if (i == 0 && j !=0){
             printf (" %d ",j);
@@ -164,22 +164,24 @@ void printLayout (char arr[40][40][10], int n, int m){
         }else if ( i == 0 && j == 0){
             printf("   ");
         } else if( j<10) {
-            if(arr[i][j] != ' '){
-            printf(" %c ",arr[i][j]);
-        } else if (arr[i][j]== ' '){
+            if(arr[i][j][0] != '0'){
+            printf("%s",arr[i][j]);
+        } else if (arr[i][j][0]== '0'){
             printf("   ");
         }
         }
          else if (j>=10 && i <10){ // jika ukuran array melebihi 10
-            if (arr[i][j] != ' '){
-            printf(" %c  ",arr[i][j]);
-        } else if (arr[i][j]== ' '){
-            printf("    ");
+            if (arr[i][j][0] != '0'){
+                printf("%s",arr[i][j]);
+            }
+            else if (arr[i][j][0]== ' '){
+                printf("    ");
+            }
         }
-        } else if  (j>=10 && i >=10){ // jika ukuran array melebihi 10
-            if (arr[i][j] != ' '){
-            printf(" %c   ",arr[i][j]);
-        } else if (arr[i][j]== ' '){
+        else if  (j>=10 && i >=10){ // jika ukuran array melebihi 10
+            if (arr[i][j][0] != '0'){
+            printf("%s",arr[i][j]);
+        } else if (arr[i][j][0]== '0'){
             printf("    ");
         }
         }
@@ -192,12 +194,13 @@ printf("\n");
 
 
 void printRouting(char arr[40][40],int n, int m){
+    int i,j;
     //int a;
     //printf ("%d %d ",m,n);
     //scanf("%d",&a);
-    for (int i = 0; i<=m;i++){
+    for (i = 0; i<=m;i++){
 
-    for (int j = 0; j <=n;j++){
+    for (j = 0; j <=n;j++){
 
         if (i == 0 && j !=0){
             printf (" %d ",j);
@@ -260,11 +263,12 @@ int isJarakValid(int i1, int j1, int i2, int j2, int jrkMin){
 }
 
 void layoutManual(int N, int M, char layout[40][40][10]){
+    int i,j;
     //prosedur untuk menaruh komponen pada layout PCB
     //N,M adalah batas grid yang diinput user
     //inisialisasi array layout
-    for (int i = 0;i<=M;i++){
-        for (int j =0;j<=N;j++){
+    for (i = 0;i<=M;i++){
+        for (j =0;j<=N;j++){
             layout [i][j][0] = '0';
         }
     }
@@ -589,5 +593,3 @@ void layoutOtomatis(){
 void routingOtomatis(){
     printf("Fungsi belum diimplementasi\n");
 }
-
-
